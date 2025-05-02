@@ -12,5 +12,5 @@ public class AccountDto {
     private String accountHolderName;
     private double balance;
 
-    // Remove the manual constructor since you're using @AllArgsConstructor
+
 }
