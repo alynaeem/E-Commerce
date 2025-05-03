@@ -1,10 +1,10 @@
 package com.e_commerce.store.repository;
 
 import com.e_commerce.store.model.Order;
+import com.e_commerce.store.model.OrderStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
-@Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
-    // Custom queries can be added here if needed
+    List<Order> findByStatus(OrderStatus status);  // Add this method
 }

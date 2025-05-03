@@ -1,27 +1,37 @@
 package com.e_commerce.store.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-    private String description;
     private double price;
+    private String description;
     private int stockQuantity;
+
+    // If Lombok isn't working, manually add setters:
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
+    }
 }

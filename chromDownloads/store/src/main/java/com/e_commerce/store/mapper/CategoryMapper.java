@@ -1,13 +1,15 @@
 package com.e_commerce.store.mapper;
 
-import com.e_commerce.store.model.Category;
 import com.e_commerce.store.dto.CategoryDTO;
+import com.e_commerce.store.model.Category;
 import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring") // Add componentModel="spring"
 public interface CategoryMapper {
-
-    CategoryDTO categoryToCategoryDTO(Category category);
+    CategoryMapper INSTANCE = Mappers.getMapper(CategoryMapper.class);
 
     Category categoryDTOToCategory(CategoryDTO categoryDTO);
+
+    CategoryDTO categoryToCategoryDTO(Category category);
 }

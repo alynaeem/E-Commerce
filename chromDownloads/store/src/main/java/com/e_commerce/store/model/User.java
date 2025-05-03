@@ -1,19 +1,12 @@
 package com.e_commerce.store.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
-@Getter
+@Getter  // Keep Lombok getters
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,5 +14,27 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String role;  // Changed to lowercase
+    private String role;
+
+    // Manually add setters since Lombok isn't working
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    // Optionally add other setters if needed
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
